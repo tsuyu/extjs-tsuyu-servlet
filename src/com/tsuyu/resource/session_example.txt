@@ -1,0 +1,73 @@
+ackage khannedy.web.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(name = "Session", urlPatterns = {"/Session"})
+public class SessionServlet extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        @SuppressWarnings("unchecked")
+        List<Object[]> list = (List<Object[]>) request.getSession().getAttribute("data");
+
+        if (list == null) {
+            list = new ArrayList<Object[]>();
+            request.getSession().setAttribute("data", list);
+        }
+
+        Object[] objects = new Object[4];
+        objects[0] = request.getParameter("nama_depan");
+        objects[1] = request.getParameter("nama_belakang");
+        objects[2] = request.getParameter("tanggal_lahir");
+        objects[3] = request.getParameter("email");
+
+        list.add(objects);
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SessionServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Daftar Data</h1>");
+            out.println("<table border='1'>");
+            out.println("<thead>");
+            out.println("<tr>");
+            out.println("<td>Nama Depan</td>");
+            out.println("<td>Nama Belakang</td>");
+            out.println("<td>Tanggal Lahir</td>");
+            out.println("<td>Email</td>");
+            out.println("</tr>");
+            out.println("</thead>");
+            out.println("<tbody>");
+
+            for (Object[] data : list) {
+                out.println("<tr>");
+                out.println("<td>" + data[0] + "</td>");
+                out.println("<td>" + data[1] + "</td>");
+                out.println("<td>" + data[2] + "</td>");
+                out.println("<td>" + data[3] + "</td>");
+                out.println("</tr>");
+            }
+
+            out.println("</tbody>");
+            out.println("</table>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
+        }
+    }
+}

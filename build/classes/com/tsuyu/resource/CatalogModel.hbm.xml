@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-Mar-2011 18:10:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tsuyu.model.CatalogModel" table="catalog_model" catalog="tsuyu">
+        <id name="cmId" type="java.lang.Integer">
+            <column name="CM_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="id" type="java.lang.String">
+            <column name="ID" />
+        </property>
+        <property name="text" type="java.lang.String">
+            <column name="TEXT" />
+        </property>
+        <property name="leaf" type="java.lang.String">
+            <column name="LEAF" />
+        </property>
+        <property name="node" type="java.lang.String">
+            <column name="NODE" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Upload File</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <form name="uploadform" action="UploadFile" method="POST" enctype="multipart/form-data">
+            <input type="file" name="upload"/>
+            <input type="submit" value="Upload"/>
+        </form>
+    </body>
+</html>
+
+package khannedy.web.servlet;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+@WebServlet(name = "UploadFile", urlPatterns = {"/UploadFile"})
+public class UploadFileServlet extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Part part = req.getPart("upload");
+
+        String temp = part.getHeader("content-disposition").split(";")[2].trim();
+        String filename = temp.substring("filename=\"".length(), temp.length() - 1);
+
+        InputStream inputStream = part.getInputStream();
+        FileOutputStream stream = new FileOutputStream(getServletContext().getRealPath("upload") + "/" + filename);
+
+        int i = -1;
+        while ((i = inputStream.read()) != -1) {
+            stream.write(i);
+        }
+
+        stream.close();
+        inputStream.close();
+
+        resp.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = resp.getWriter();
+        try {
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SayHelloServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<a href=\"upload/" + filename + "\">");
+            out.println("Download Here");
+            out.println("</a>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
+        }
+    }
+}

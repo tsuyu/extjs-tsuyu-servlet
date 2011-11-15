@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-Mar-2011 18:10:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tsuyu.model.Address" table="address" catalog="tsuyu">
+        <id name="addressId" type="java.lang.Integer">
+            <column name="ADDRESS_ID" />
+            <generator class="identity"/>
+         </id>
+        <many-to-one name="signIn" class="com.tsuyu.model.SignIn" fetch="select">
+           <column name="SIGNIN_ID" not-null="true" />
+    	</many-to-one>
+        <property name="address1" type="java.lang.String">
+            <column name="ADDRESS1" />
+        </property>
+        <property name="address2" type="java.lang.String">
+            <column name="ADDRESS2" />
+        </property>
+</class>
+</hibernate-mapping>

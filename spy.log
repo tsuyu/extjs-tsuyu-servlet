@@ -1,0 +1,34 @@
+1302924108979|-1||debug||com.p6spy.engine.common.P6SpyOptions reloading properties
+1302924108989|-1||info||Using properties file: spy.properties
+1302924108989|-1||info||No value in environment for: getStackTrace, using: false
+1302924108989|-1||info||No value in environment for: getDeregisterDrivers, using: false
+1302924108989|-1||info||No value in environment for: getUsePrefix, using: false
+1302924108989|-1||info||No value in environment for: getExecutionThreshold, using: 0
+1302924108989|-1||info||No value in environment for: getAutoflush, using: true
+1302924108990|-1||info||No value in environment for: getExclude, using: 
+1302924108990|-1||info||No value in environment for: getExcludecategories, using: info,debug,result,batch
+1302924108990|-1||info||No value in environment for: getFilter, using: false
+1302924108990|-1||info||No value in environment for: getInclude, using: 
+1302924108990|-1||info||No value in environment for: getIncludecategories, using: 
+1302924108990|-1||info||No value in environment for: getLogfile, using: /home/tsuyu/setup/eclipsejee/workspace/extjs-tsuyu-servlet/spy.log
+1302924108990|-1||info||No value in environment for: getAppender, using: com.p6spy.engine.logging.appender.FileLogger
+1302924108991|-1||info||No value in environment for: getRealdriver, using: com.mysql.jdbc.Driver
+1302924108991|-1||info||No value in environment for: getRealdriver2, using: 
+1302924108991|-1||info||No value in environment for: getRealdriver3, using: 
+1302924108991|-1||info||No value in environment for: getAppend, using: true
+1302924108991|-1||info||No value in environment for: getSpydriver, using: com.p6spy.engine.spy.P6SpyDriver
+1302924108991|-1||info||No value in environment for: getDateformat, using: 
+1302924108991|-1||info||No value in environment for: getDateformatter, using: null
+1302924108991|-1||info||No value in environment for: getStringmatcher, using: com.p6spy.engine.common.SubstringMatcher
+1302924108992|-1||info||No value in environment for: getStringMatcherEngine, using: com.p6spy.engine.common.SubstringMatcher@26ae533a
+1302924108992|-1||info||No value in environment for: getStackTraceClass, using: 
+1302924108992|-1||info||No value in environment for: getSQLExpression, using: null
+1302924108992|-1||info||No value in environment for: getReloadProperties, using: false
+1302924108992|-1||info||No value in environment for: getReloadPropertiesInterval, using: 60
+1302924108992|-1||info||No value in environment for: getJNDIContextFactory, using: null
+1302924108992|-1||info||No value in environment for: getJNDIContextProviderURL, using: null
+1302924108993|-1||info||No value in environment for: getJNDIContextCustom, using: null
+1302924108993|-1||info||No value in environment for: getRealDataSource, using: null
+1302924108993|-1||info||No value in environment for: getRealDataSourceClass, using: null
+1302924108993|-1||info||No value in environment for: getRealDataSourceProperties, using: null
+1302924109021|-1||error||driver com.mysql.jdbc.Driver is a real driver in spy.properties, but it has been loaded before p6spy.  p6spy will not wrap these connections.  Either prevent the driver from loading, or try setting 'deregisterdrivers' to true in spy.properties

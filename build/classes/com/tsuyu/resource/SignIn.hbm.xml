@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-Mar-2011 18:10:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class catalog="tsuyu" name="com.tsuyu.model.SignIn" table="sign_in">
+  <id name="signinId" type="java.lang.Integer">
+   <column name="SIGNIN_ID"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="userName" type="java.lang.String">
+   <column name="USERNAME"/>
+  </property>
+  <property generated="never" lazy="false" name="password" type="java.lang.String">
+   <column name="PASSWORD"/>
+  </property>
+  <property generated="never" lazy="false" name="accessLevel" type="java.lang.String">
+   <column name="ACCESS_LEVEL"/>
+  </property>
+  <one-to-one cascade="save-update,delete"
+   class="com.tsuyu.model.User" name="user"/>
+  <set cascade="save-update,delete" fetch="select" inverse="true"
+   lazy="true" name="addresses" sort="unsorted" table="address">
+   <key>
+    <column name="SIGNIN_ID" not-null="true"/>
+   </key>
+   <one-to-many class="com.tsuyu.model.Address"/>
+  </set>
+ </class>
+</hibernate-mapping>
