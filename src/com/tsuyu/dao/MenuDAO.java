@@ -156,7 +156,7 @@ public class MenuDAO  {
 			filters = JsonUtil.getExtJSFiltersFromRequest(filter);
 			List data = session
 					.createSQLQuery(
-							"select childrenId,childrenSequence, childrenName, COALESCE(childrenDescription,'') as leafDescription,"
+							"select childrenId,childrenSequence, childrenName, COALESCE(childrenDescription,'') as childrenDescription,"
 									+ "COALESCE(childrenIcon,'') as childrenIcon, childrenMapper, accordianName "
 									+ " from children join accordian using(accordianId) WHERE 1 "
 									+ Util.filterBuilder(filters))
@@ -184,7 +184,6 @@ public class MenuDAO  {
 
 		} else {
 			return showChildrenList();
-			//showChildrenAll();
 		}
 	}
 	
