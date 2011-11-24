@@ -7,34 +7,34 @@
         <title>Sign Up</title>
         <!-- ExtJS css -->
         <link rel="stylesheet" type="text/css"
-              href="/extjs-tsuyu-servlet/ext-3.3.0/resources/css/ext-all.css" />
+              href="/extjs-tsuyu-servlet/ext/resources/css/ext-all.css" />
         <link rel="stylesheet" type="text/css"
-              href="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/css/overrides.css" />
+              href="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/css/overrides.css" />
 
         <link rel="stylesheet" type="text/css"
-              href="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/css/flags.css" />
+              href="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/css/flags.css" />
         <link rel="stylesheet" type="text/css"
-              href="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/css/virtualkeyboard.css" />
+              href="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/css/virtualkeyboard.css" />
 
-        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext-3.3.0/adapter/ext/ext-base.js"></script>
-        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext-3.3.0/ext-all.js"></script>
-
-        <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/overrides.js"></script>
+        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext/adapter/ext/ext-base.js"></script>
+        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext/ext-all.js"></script>
 
         <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/virtualkeyboard.js"></script>
-        <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/plugins/virtualkeyboard.js"></script>
-        <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/Ext.ux.Crypto.SHA1.js"></script>
-        <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/Ext.ux.form.IconCombo.js"></script>
-        <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/Ext.ux.form.LoginDialog.js"></script>
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/overrides.js"></script>
 
         <script type="text/javascript"
-        src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/logindialog/js/LoginDialogExample.js"></script>
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/virtualkeyboard.js"></script>
+        <script type="text/javascript"
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/plugins/virtualkeyboard.js"></script>
+        <script type="text/javascript"
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/Ext.ux.Crypto.SHA1.js"></script>
+        <script type="text/javascript"
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/Ext.ux.form.IconCombo.js"></script>
+        <script type="text/javascript"
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/Ext.ux.form.LoginDialog.js"></script>
+
+        <script type="text/javascript"
+        src="/extjs-tsuyu-servlet/ext/examples/ux/logindialog/js/LoginDialogExample.js"></script>
     </head>
     <body>
 

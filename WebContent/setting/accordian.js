@@ -2,7 +2,7 @@ Ext.onReady(function() {
 			Ext.QuickTips.init();
 			Ext.form.Field.prototype.msgTarget = 'under';
 			
-			Ext.BLANK_IMAGE_URL = '/extjs-tsuyu-servlet/ext-3.3.0/resources/images/default/s.gif';
+			Ext.BLANK_IMAGE_URL = '/extjs-tsuyu-servlet/ext/resources/images/default/s.gif';
 			var encode = false;
 			Ext.Ajax.timeout = 90000;
 			

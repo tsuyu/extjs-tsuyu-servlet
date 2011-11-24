@@ -154,9 +154,6 @@ public class MenuDAO  {
 		if (filter != null) { // filter is optional
 
 			filters = JsonUtil.getExtJSFiltersFromRequest(filter);
-			// List catalog =
-			// session.getNamedQuery("filterNativeSQL").setParameter("filtered",
-			// Util.filterBuilder(filters)).list();
 			List data = session
 					.createSQLQuery(
 							"select childrenId,childrenSequence, childrenName, COALESCE(childrenDescription,'') as leafDescription,"

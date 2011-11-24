@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
-  <diskStore path="/home/tsuyu/setup/eclipsejee/workspace/extjs-tsuyu-servlet/ehcache"/>
+  <diskStore path="D://javworkspace//extjsworkspace//extjs-tsuyu-servlet//ehcache"/>
   <defaultCache 
 	maxElementsInMemory="10000"
 	eternal="false"

@@ -9,23 +9,23 @@
         <title>tsuyu.org</title>
 
         <!-- ExtJS css -->
-        <link rel="stylesheet" type="text/css" href="/extjs-tsuyu-servlet/ext-3.3.0/resources/css/ext-all.css" />
-        <link rel="stylesheet" type="text/css" href="/extjs-tsuyu-servlet/ext-3.3.0/resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="/extjs-tsuyu-servlet/ext/resources/css/ext-all.css" />
+        <link rel="stylesheet" type="text/css" href="/extjs-tsuyu-servlet/ext/resources/css/icons.css" />
         <link rel="stylesheet" href="<% out.print(session.getAttribute("theme")); %>"/>
         <!-- App custom css -->
         <!-- ExtJS js -->
-        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext-3.3.0/adapter/ext/ext-base.js"></script>
+        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext/adapter/ext/ext-base.js"></script>
         <script type="text/javascript" src="/extjs-tsuyu-servlet/ext/ext-all.js"></script>
 
         <!-- Ux js -->
-        <script type="text/javascript"src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/Ext.ux.TabCloseMenu/Ext.ux.TabCloseMenu.js"></script>
-        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext-3.3.0/examples/ux/iframe.js"></script>
+        <script type="text/javascript"src="/extjs-tsuyu-servlet/ext/examples/ux/Ext.ux.TabCloseMenu/Ext.ux.TabCloseMenu.js"></script>
+        <script type="text/javascript" src="/extjs-tsuyu-servlet/ext/examples/ux/iframe.js"></script>
         
         <!-- App js -->
         <script type="text/javascript"><!--
         Ext.onReady(function() {
 
-			Ext.BLANK_IMAGE_URL = '/extjs-tsuyu-servlet/ext-3.3.0/resources/images/default/s.gif';
+			Ext.BLANK_IMAGE_URL = '/extjs-tsuyu-servlet/ext/resources/images/default/s.gif';
 			
 			var theme_selecter = new Ext.data.SimpleStore({
 				fields	: ['display', 'value'],

@@ -59,7 +59,12 @@ Ext.ux.form.LoginDialog = function (config) {
     this._loginButtonId = Ext.id();
     this._cancelButtonId = Ext.id();
     this._rememberMeId = Ext.id();
-
+    
+    this._hidden = new Ext.form.Hidden({
+    	name : this.action ,
+    	value :'login'
+    });
+    
     // form panel
     this._formPanel = new Ext.form.FormPanel ({
         region      : 'center',
@@ -68,7 +73,7 @@ Ext.ux.form.LoginDialog = function (config) {
         waitMsgTarget: true,
         labelWidth  : 75,
         defaults    : { width: 300 },
-        items : [{
+        items : [this._hidden,{
             xtype           : 'textfield',
             id              : this._usernameId,
             name            : this.usernameField,
@@ -148,28 +153,47 @@ Ext.ux.form.LoginDialog = function (config) {
             }
         }, {
             xtype: 'box',
+            autoEl: {
+                html: '<div style="text-align: right; width: 380px;">' +
+                    '<a href="' + this.forgotPasswordLink + '" target="_blank">'+
+                    this.forgotPasswordLabel + '</a></div>'
+            }
+        }, {
+            xtype: 'box',
             autoEl: 'div',
             height: 10
         }, {
             xtype           : 'combo',
-            name      		: 'database',
-            id				: 'databaseX',
-            hiddenId		: 'database',
-            hiddenName		:  'database',
-			    allowBlank      : false,
+            hiddenName      : this.databaseField,
             fieldLabel      : this.databaseLabel,
             store           : new Ext.data.SimpleStore({
-                fields: ['database', 'databaseName'],
+                fields: ['languageCode', 'languageName', 'countryFlag'],
                 data: [
-                    ['koperasi', 'Live Database'],
-                    ['koperasi1','Training Database']
+                    ['en-us', '', 'ux-flag-us']
                 ]
             }),
-            valueField: 'database',
-            displayField: 'databaseName',
+            valueField: 'languageCode',
+            value: 'en-us',
+            displayField: 'languageName',
+            iconClsField: 'countryFlag',
             triggerAction: 'all',
             editable: false,
             mode: 'local'
+        }, {
+            xtype       : 'checkbox',
+            id          : this._rememberMeId,
+            name        : this.rememberMeField,
+            boxLabel    : '&nbsp;' + this.rememberMeLabel,
+            width       : 200,
+            listeners: {
+                render: function() {
+                    Ext.get(Ext.DomQuery.select('#x-form-el-' + this._rememberMeId + ' input')).set({
+                        qtip: 'This is not recommended for shared computers.'
+                    });
+
+                },
+                scope: this
+            }
         }]
     });
 
@@ -252,23 +276,22 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
      *
      * @type {String}
      */
-    message : '' +
-    		'Kemasukan ke tempat ini adalah dilarang kecuali ahli tertentu sahaja' +
-        '<br />Sila isi Nama dan Kata Laluan.',
+    message : 'Access to this location is restricted to authorized users only.' +
+        '<br />Please type your username and password.',
 
     /**
      * When login failed and no server message sent
      *
      * @type {String}
      */
-    failMessage : 'Tidak Boleh masuk ke sistem',
+    failMessage : 'Unable to log in',
 
     /**
      * When submitting the login details
      *
      * @type {String}
      */
-    waitMessage : 'Harap Bersabar',
+    waitMessage : 'Please wait...',
 
     /**
      * The login button text
@@ -289,7 +312,7 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
      *
      * @type {String}
      */
-    usernameLabel : 'Nama',
+    usernameLabel : 'Username',
 
     /**
      * Username field name
@@ -310,7 +333,7 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
      *
      * @type {String}
      */
-    passwordLabel : 'Kata Laluan',
+    passwordLabel : 'Password',
 
     /**
      * Password field name
@@ -331,7 +354,7 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
      *
      * @type {String}
      */
-    databaseLabel : 'Pengkalan Data',
+    databaseLabel : 'Database',
     
     /**
      * Language field name
@@ -359,7 +382,7 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
      *
      * @type {String}
      */
-    forgotPasswordLabel : 'Terlupa Kata Laluan?',
+    forgotPasswordLabel : 'Forgot Password?',
 
     /**
      * Enable Virtual Keyboard for password
@@ -403,7 +426,7 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
      *
      * @type {String}
      */
-    url : './auth/access.php',
+    url : './setting/signin',
 
     /**
      * Path to images
@@ -500,9 +523,11 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
         if (this.fireEvent('cancel', this))
         {
             this.hide();
-			window.location.replace('index.php');
+			window.location.replace('index.jsp');
         }
     },
+    
+    action : 'action',
 
 
     /**
@@ -533,7 +558,7 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
                     success : this.onSuccess,
                     failure : this.onFailure,
                     scope   : this
-                });
+                 });
             }
         }
     },
@@ -557,9 +582,9 @@ Ext.extend (Ext.ux.form.LoginDialog, Ext.util.Observable, {
             }
             
            
-			if(action.result.success===true || action.result.success=="true"){
-				window.location.replace("./main/main.php");
-			}	
+			//if(action.result.success===true || action.result.success=="true"){
+				window.location.replace("./main.jsp");
+			//}	
 			 this.hide();
 			}
     },
